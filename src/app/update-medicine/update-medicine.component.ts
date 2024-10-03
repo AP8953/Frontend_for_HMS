@@ -1,0 +1,34 @@
+import { Component } from '@angular/core';
+import { MedicineService } from '../medicine.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Medicine } from '../medicine';
+
+@Component({
+  selector: 'app-update-medicine',
+  templateUrl: './update-medicine.component.html',
+  styleUrl: './update-medicine.component.css'
+})
+export class UpdateMedicineComponent {
+  constructor(private route:ActivatedRoute, private medicineService:MedicineService, private router:Router){
+
+  }
+  id:number=0;
+  medicine:Medicine=new Medicine();
+
+  ngOnInit():void{
+    this.id=this.route.snapshot.params['id'];
+    this.medicineService.getMedicineById(this.id).subscribe(data=>{
+      this.medicine=data;
+    })
+  }
+onSubmit() {
+  this.medicineService.updateMedicine(this.id,this.medicine).subscribe(data=>{
+    console.log(data);
+    this.goToMedicineList();
+  })
+}
+goToMedicineList(){
+  this.router.navigate(['/view-medicine']);
+}
+
+}

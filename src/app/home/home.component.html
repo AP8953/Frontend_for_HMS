@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System - Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Body Styling */
+body {
+    background-image: url('assets/modern hospital exterior.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+/* Overlay for Darkened Background */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #007bff !important; /* Consistent primary color */
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+    font-weight: bold;
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+}
+
+/* Main Content Styling */
+.container {
+    margin-top: 30px;
+    text-align: center; /* Center align content */
+}
+
+/* Admin Login Card */
+.card {
+    margin-top: 50px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: white;
+}
+
+.card h1, .card h6 {
+    color: #007bff;
+}
+
+.card-body {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+}
+
+/* Form labels and inputs */
+label {
+    color: #343a40;
+}
+
+input {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Buttons */
+.btn-success, .btn-warning, .btn-info, .btn-danger {
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+/* Centered heading */
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #70460a;
+    font-weight: bold;
+}
+
+/* Info text */
+.info-text {
+    text-align: center;
+    font-size: 16px;
+    color: #6c757d;
+    margin-top: 10px;
+}
+
+/* Login Buttons */
+.login-buttons button {
+    margin: 10px;
+}
+
+/* Functionality Section */
+.functionality-section {
+    margin-top: 30px;
+}
+
+.functionality-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        margin-top: 20px;
+    }
+    .btn-success, .btn-warning {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+    .functionality-card {
+        flex: 1 1 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .functionality-card {
+        flex: 1 1 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">NSMCH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" routerLink="/admin">Patient</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);" routerLink="/appointmentlist">Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);" routerLink="/view-medicine">Medicines</a>
+                    </li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Buttons -->
+    <div class="container login-buttons">
+        <h2>Welcome to Netaji Subash Medical College and Hospital</h2>
+        <button class="btn btn-primary btn-lg mx-2" data-target="model" routerLink="/doclogin">Login as Doctor</button>
+        <button class="btn btn-secondary btn-lg mx-2" data-target="model" routerLink="/adlogin">Login as Admin</button>
+    </div>
+
+    <!-- Functionality Sections -->
+    <div class="container functionality-section">
+        <h2>Our Hospital Services</h2>
+        <div class="row">
+            <div class="col-md-4 functionality-card">
+                <div class="card">
+                    <img src="assets/doctor with patient.jpg" class="card-img-top" alt="Patient Management">
+                    <div class="card-body">
+                        <h5 class="card-title">Patient Management</h5>
+                        <p class="card-text">Manage patient records, prescriptions, and treatments with ease.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 functionality-card">
+                <div class="card">
+                    <img src="assets/medical appointment scheduling.png" class="card-img-top" alt="Appointment Scheduling">
+                    <div class="card-body">
+                        <h5 class="card-title">Appointment Scheduling</h5>
+                        <p class="card-text">Schedule and track appointments for doctors and patients efficiently.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 functionality-card">
+                <div class="card">
+                    <img src="assets/pharmacy counter.webp" class="card-img-top" alt="Pharmacy Services">
+                    <div class="card-body">
+                        <h5 class="card-title">Pharmacy Services</h5>
+                        <p class="card-text">Access pharmacy services, manage prescriptions, and request refills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 functionality-card">
+                <div class="card">
+                    <img src="assets/hospital emergency room.jpg" class="card-img-top" alt="Emergency Services">
+                    <div class="card-body">
+                        <h5 class="card-title">Emergency Services</h5>
+                        <p class="card-text">24/7 emergency services available for all critical situations.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 functionality-card">
+                <div class="card">
+                    <img src="assets/CT scan machine.jpg" class="card-img-top" alt="Medical Imaging">
+                    <div class="card-body">
+                        <h5 class="card-title">Medical Imaging</h5>
+                        <p class="card-text">State-of-the-art imaging technology for accurate diagnosis and treatment.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 functionality-card">
+                <div class="card">
+                    <img src="assets/medical bill payment.jpg" class="card-img-top" alt="Billing and Insurance">
+                    <div class="card-body">
+                        <h5 class="card-title">Billing and Insurance</h5>
+                        <p class="card-text">Easily manage hospital billing, insurance claims, and patient records.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer with Contact Info -->
+    <footer>
+        <div class="container">
+            <p><strong>Contact Us:</strong></p>
+            <p>NSMCH Hospital, 123 Health Avenue, City, Country</p>
+            <p>Email: info&#64;nsmch.com | Phone: +123 456 7890</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
