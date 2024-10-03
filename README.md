@@ -1,27 +1,54 @@
-# FrontendForHms
+# Hospital Management System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
+The **Hospital Management System** is a comprehensive web application designed to streamline various administrative and clinical tasks within a hospital environment. It integrates front-end and back-end technologies to create an efficient, user-friendly platform that enables hospital staff to manage patients, appointments, medicines, and other essential functions securely and reliably.
 
-## Development server
+Built using **Angular** for the front-end and **Spring Boot** for the back-end, this system adheres to industry best practices in modularity, scalability, and security.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+### Patient Management:
+- **Add**, **update**, and **view** patient details.
+- *Search* and *filter* patients based on various criteria.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Appointment Scheduling:
+- **Manage** doctor and patient appointments.
+- *Book*, *update*, or *cancel* appointments with ease.
 
-## Build
+### Medicine Management:
+- **Manage** medicine inventory, including adding and updating medicine details.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Role-Based Access Control:
+- **Admin**: Manage hospital records, control access, and view all patient and appointment data.
+- **Doctor**: Manage appointments and view assigned patients' details.
+- *Authentication* and *Authorization* using Angular Route Guards and Spring Security.
 
-## Running unit tests
+## Tech Stack
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Front-End: Angular
+- Components for different modules such as **Patient**, **Appointment**, **Medicine**, **Admin**, and **Doctor**.
+- Services to handle communication with the back-end API.
+- Route Guards for protecting restricted routes based on user roles.
+- Global styling for a uniform look and feel.
 
-## Running end-to-end tests
+### Back-End: Spring Boot
+- **Controller Layer**: Handles incoming HTTP requests and provides endpoints for different operations like creating patients, appointments, and managing medicines.
+- **Service Layer**: Contains business logic for interacting with the database and handling data manipulations.
+- **Repository Layer**: Uses Spring Data JPA to interact with the database and perform CRUD operations.
+- **Database Models (Entities)**: Define the structure of the tables, such as **Patient**, **Appointment**, **Medicine**, etc.
+- Configuration via `application.properties`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Project Architecture
 
-## Further help
+### Front-End:
+The front-end is organized using Angular's modular architecture:
+- **Components**: Each key feature (e.g., **Patient**, **Medicine**, **Appointment**) is encapsulated in its own component.
+- **Services**: These Angular services (`appointment.service.ts`, `medicine.service.ts`, etc.) handle all HTTP calls to the back-end and ensure separation of concerns.
+- **Routing**: Implemented with Angular's `app-routing.module.ts`, which defines paths for all views (e.g., `create-patient`, `view-patient`, `update-medicine`).
+- **Guards**: Route guards such as `adminauthguard.service.ts` and `docauthguard.service.ts` secure different areas of the application.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Back-End:
+The back-end is structured into key layers:
+- **Controllers**: Handle incoming API requests, such as `PatientController.java`, `AppointmentController.java`, and `MedicineController.java`.
+- **Repositories**: Interfaces such as `PatientRepository.java` and `AppointmentsRepository.java` perform database CRUD operations.
+- **Entities**: Java classes that represent the database tables (e.g., `Patient.java`, `Medicine.java`, `Appointment.java`).
+
